@@ -30,3 +30,49 @@ file: app/build/outputs/apk/app-release.apk
 skip_cleanup: true
 on:
   tags: true
+
+-----------------------------------
+sudo: false
+
+language: android
+jdk: oraclejdk8
+
+android:
+  components:
+  - platform-tools
+  - tools
+  - build-tools-23.0.3
+  - android-23
+
+before_install:
+- chmod +x gradlew
+
+script:
+- "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
+
+notifications:
+  email: true
+
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+  directories:
+  - "$HOME/.m2"
+  - "$HOME/.gradle"
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  
+deploy:
+  provider: releases
+  api_key:
+    secure: f1fc8784f1674ca636bea83230d8647b9f7d312b
+  file: app/build/outputs/apk/app-release.apk
+  file_glob: true
+  skip_cleanup: true
+  on:
+    branch: master
+    repo: username/Repo
+    
+after_success:
+   - sh set_tags.sh
