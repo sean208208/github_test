@@ -1,13 +1,17 @@
 language: android
-
-sudo: false
-
 android:
   components:
-  - build-tools-28.0.3
-  - android-28
-  - extra-android-m2repository
-  - extra-android-support
-
+    - build-tools-28.0.3
+    - android-28
+    - extra-android-m2repository
+    - extra-android-support
 script:
-  - "./gradlew assembleRelease"
+  - ./gradlew assembleRelease
+deploy:
+  provider: releases
+  api_key:
+    secure: f1fc8784f1674ca636bea83230d8647b9f7d312b
+  file: app/build/outputs/apk/app-release.apk
+  skip_cleanup: true
+  on:
+    tags: true
