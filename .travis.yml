@@ -28,11 +28,9 @@ deploy:
   api_key:
     secure: 46bde15f61dba4b2964e00adbf2aa8cfdda46256
     file: app/build/outputs/apk/app-release.apk
-  # 这句手动添加
   skip_cleanup: true
-  on:
+on:
     repo: sean208208/github_test
-    # 这句手动添加
     tags: true
 
 after_deploy:
