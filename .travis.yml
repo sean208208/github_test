@@ -13,8 +13,7 @@ android:
 before_install:
 - chmod +x gradlew
 
-script:
-- gradle build connectedCheck
+script: ./gradlew connectedAndroidTest
 
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
