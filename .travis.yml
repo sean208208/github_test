@@ -31,8 +31,7 @@ deploy:
   skip_cleanup: true
 on:
     repo: sean208208/github_test
-    branch: master
-    tags: true
+    tags: 1.0
 
 after_deploy:
   - rm -rf $TRAVIS_BUILD_DIR/app/build/outputs
