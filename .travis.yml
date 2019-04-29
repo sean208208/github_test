@@ -31,7 +31,7 @@ deploy:
   # 这句手动添加
   skip_cleanup: true
   on:
-    repo: xch168/AndroidTravisCI
+    repo: sean208208/github_test
     # 这句手动添加
     tags: true
 
