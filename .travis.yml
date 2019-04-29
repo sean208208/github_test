@@ -28,7 +28,7 @@ deploy:
   api-key: f1fc8784f1674ca636bea83230d8647b9f7d312b
   file: github_test/app/build/outputs/apk/debug/app-debug.apk
   skip_cleanup: true
-  name: dev-build-$TRAVIS_TAG
+  name: dev-build-test
   body: Automatic build of $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
   prerelease: true
   overwrite: true
