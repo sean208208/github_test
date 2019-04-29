@@ -33,7 +33,7 @@ deploy:
   prerelease: true
   overwrite: true
   target_commitish: $TRAVIS_COMMIT
-  on:
+on:
   branch: master
     tags: true
 
