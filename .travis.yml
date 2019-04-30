@@ -25,9 +25,7 @@ script:
     
 deploy:
   provider: releases
-  user: "sean208208"
-  password: "1Iloveroxy"
-  api-key: "d4165dfb574a169140d3f8dd60629aa60b7f995a"
+  api-key: "a37f6df6dda4721088515e10b500756fe64efb24"
   file: $TRAVIS_BUILD_DIR/app/build/outputs/apk/debug/app-debug.apk
   skip_cleanup: true
   name: dev-build-$TRAVIS_TAG
