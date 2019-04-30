@@ -22,16 +22,3 @@ before_install:
 
 script:
     - ./gradlew assembleDebug
-    
-deploy:
-  provider: releases
-  api_key:
-    secure: 394e0b9c3d0c3ac25c31794e74bf850326efa0b7
-    file: app/build/outputs/apk/app-release.apk
-  skip_cleanup: true
-on:
-    repo: sean208208/github_test
-    tags: 1.0
-
-after_deploy:
-  - rm -rf $TRAVIS_BUILD_DIR/app/build/outputs
