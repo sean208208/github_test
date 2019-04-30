@@ -23,20 +23,4 @@ before_install:
 script:
     - ./gradlew assembleDebug
     
-deploy:
-  provider: releases
-  api-key: "675559134a641df7ebea8c2e04b1103ab7a840a8"
-  file: $TRAVIS_BUILD_DIR/app/build/outputs/apk/debug/app-debug.apk
-  skip_cleanup: true
-  name: dev-build-$TRAVIS_TAG
-  body: Automatic build of $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
-  prerelease: true
-  overwrite: true
-  target_commitish: $TRAVIS_COMMIT
-on:
-  repo: sean208208/github_test
-  branch: master
-  tags: true
 
-after_deploy:
-  - rm -rf $TRAVIS_BUILD_DIR/app/build/outputs
